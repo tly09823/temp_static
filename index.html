@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test</title>
+
+  <style>
+    body {
+      margin: 0;
+    }
+
+    html.open,
+    html.open body {
+      overflow: hidden;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      background-color: #fff;
+      height: 200px;
+    }
+
+    .wrapper {
+      height: 100px;
+    }
+
+    nav {
+      display: none;
+      position: absolute;
+      top: 100px;
+      left: 0;
+      right: 0;
+      height: 100vh;
+      width: 100vw;
+      background-color: yellow;
+    }
+
+    html.open nav {
+      display: block;
+    }
+
+    button {
+      position: fixed;
+      right: 10px;
+      top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrapper">
+      <span>A</span>
+      <span>A</span>
+      <span>A</span>
+      <span>A</span>
+      <span>A</span>
+      <span>A</span>
+    </div>
+
+    <nav>
+    </nav>
+
+    <button>X</button>
+  </header>
+  <main></main>
+
+  <script>
+    const html = document.getElementsByTagName("html")[0];
+    const body = document.getElementsByTagName("main")[0];
+    body.innerHTML = [...new Array(200)].map((_, index) => `<div class="number">${index}</div>`);
+
+    const btn = document.getElementsByTagName("button")[0];
+    btn.addEventListener("click", () => {
+      html.classList.toggle("open");
+    });
+  </script>
+</body>
+
+</html>
